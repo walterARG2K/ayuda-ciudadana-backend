@@ -1,4 +1,4 @@
-import { Report, User } from "../models";
+import { Report } from "../models";
 import placeholder from "../public/placeholder.png";
 
 export async function getAllReports() {
@@ -72,14 +72,13 @@ export async function updateAReport(body: updateReportProps, userId: number) {
     const report = await Report.findByPk(body.reportId);
     const newReport = report?.dataValues;
     if (newReport.UserId == userId) {
+      console.log(true);
       const updateReport = await report?.update({
-        /*   title: body.title, */
-        description: body.description,
-        image: body.image || placeholder,
-        status: body.status,
-        /* latitude: body.lat,
-        longitude: body.lng, */
+        description: body.description || newReport.description,
+        image: body.image || newReport.image,
+        status: body.status || newReport.status,
       });
+
       return updateReport;
     }
   } catch (error) {
