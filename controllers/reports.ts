@@ -72,7 +72,6 @@ export async function updateAReport(body: updateReportProps, userId: number) {
     const report = await Report.findByPk(body.reportId);
     const newReport = report?.dataValues;
     if (newReport.UserId == userId) {
-      console.log(true);
       const updateReport = await report?.update({
         description: body.description || newReport.description,
         image: body.image || newReport.image,
