@@ -4,7 +4,6 @@ import { verifyToken } from "./jwt";
 export function middleware(callback: any) {
   return (req: NextApiRequest, res: NextApiResponse) => {
     try {
-      console.log(req.headers.hola);
       const token = req.headers.authorization;
 
       if (!token) throw "header authorization no existe";
