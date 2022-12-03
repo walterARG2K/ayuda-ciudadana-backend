@@ -11,7 +11,7 @@ const nextConfig = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value: "https://test-walter.vercel.app",
+            value: "https://ayuda-ciudadana.vercel.app/",
           },
           {
             key: "Access-Control-Allow-Methods",
