@@ -1,13 +1,16 @@
-import { sequelize } from "../lib/db";
+import { sequelize } from "./connection";
 import { DataTypes } from "sequelize";
 
-export const User = sequelize.define("User", {
-  fullname: {
-    type: DataTypes.STRING,
-    allowNull: false,
+export const User = sequelize.define(
+  "User",
+  {
+    full_name: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-});
+  {
+    modelName: "User",
+  }
+);

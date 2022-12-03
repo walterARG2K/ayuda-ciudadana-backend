@@ -1,4 +1,4 @@
-import { sequelize } from "../lib/db";
+import { sequelize } from "./connection";
 import { DataTypes } from "sequelize";
 
 export const Report = sequelize.define("Report", {
