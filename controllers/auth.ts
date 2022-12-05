@@ -78,7 +78,7 @@ export const findUserAndVerifyCode = async (email: string, code: number) => {
     const expirationTime = response?.get("expiration") as string;
     const securityCode = response?.get("code") as number;
 
-    if (actualTime < expirationTime && securityCode === code && code) {
+    if (securityCode === code && code) {
       response?.update({ code: 0 });
       return createToken(response?.get("user_id") as string);
     } else {
